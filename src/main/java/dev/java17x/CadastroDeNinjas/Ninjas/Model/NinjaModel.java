@@ -1,5 +1,6 @@
-package dev.java17x.CadastroDeNinjas;
+package dev.java17x.CadastroDeNinjas.Ninjas.Model;
 
+import dev.java17x.CadastroDeNinjas.Missions.Model.MissionModel;
 import jakarta.persistence.*;
 
 @Entity
@@ -11,6 +12,10 @@ public class NinjaModel {
     private String name;
     private String email;
     private int age;
+    // One ninja only has one mission
+    @ManyToOne
+    @JoinColumn(name = "mission_id")
+    private MissionModel mission;
 
     public NinjaModel() {}
 
